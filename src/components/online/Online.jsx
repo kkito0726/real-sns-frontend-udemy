@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Online({ user }) {
-  console.log(user);
   return (
     <li className="rightbarFriend">
       <div className="rightbarProfileImgContainer">
