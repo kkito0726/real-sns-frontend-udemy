@@ -8,6 +8,7 @@ import {
   Settings,
 } from "@mui/icons-material";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import "./Sidebar.css";
@@ -19,7 +20,9 @@ export default function Sidebar() {
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <Home className="sidebarIcon" />
-            <span className="sidebarListItemText">ホーム</span>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <span className="sidebarListItemText">ホーム</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <Search className="sidebarIcon" />
@@ -39,7 +42,12 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Person className="sidebarIcon" />
-            <span className="sidebarListItemText">プロフィール</span>
+            <Link
+              to={"/profile/shinCode"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <span className="sidebarListItemText">プロフィール</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <Settings className="sidebarIcon" />
