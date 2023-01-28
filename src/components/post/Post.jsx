@@ -17,7 +17,6 @@ export default function Post({ post }) {
     const fetchUser = async () => {
       const response = await axios.get(`/users/${post.userId}`);
       setUser(response.data);
-      console.log(response.data);
     };
     fetchUser();
   }, []);
