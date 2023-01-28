@@ -16,7 +16,7 @@ export default function Timeline({ username }) {
       setPosts(response.data);
     };
     fetchPosts();
-  }, []);
+  }, [username]);
 
   return (
     <div className="timeline">

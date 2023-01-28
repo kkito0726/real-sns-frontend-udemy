@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Timeline from "../../components/timeline/Timeline";
@@ -9,12 +10,12 @@ import "./Profile.css";
 export default function Profile() {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState([]);
+  const username = useParams().username;
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await axios.get(`/users?username=shincode`);
+      const response = await axios.get(`/users?username=${username}`);
       setUser(response.data);
-      console.log(response.data);
     };
     fetchUser();
   }, []);
@@ -27,12 +28,14 @@ export default function Profile() {
           <div className="profileRightTop">
             <div className="profileCover">
               <img
-                src={PUBLIC_FOLDER + "/post/3.jpeg"}
+                src={user.coverPicture || PUBLIC_FOLDER + "/post/3.jpeg"}
                 alt=""
                 className="profileCoverImg"
               />
               <img
-                src={PUBLIC_FOLDER + "/person/1.jpeg"}
+                src={
+                  user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
+                }
                 alt=""
                 className="profileUserImg"
               />
@@ -43,7 +46,7 @@ export default function Profile() {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Timeline username="shincode" />
+            <Timeline username={username} />
             <Rightbar user={user} />
           </div>
         </div>
