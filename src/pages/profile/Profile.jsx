@@ -34,7 +34,8 @@ export default function Profile() {
               />
               <img
                 src={
-                  user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
+                  PUBLIC_FOLDER + user.profilePicture ||
+                  PUBLIC_FOLDER + "/person/noAvatar.png"
                 }
                 alt=""
                 className="profileUserImg"

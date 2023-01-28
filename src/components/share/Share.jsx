@@ -10,7 +10,11 @@ export default function Share() {
       <div className="shareWrapper">
         <div className="shareTop">
           <img
-            src={PUBLIC_FOLDER + "/person/noAvatar.png"}
+            src={
+              user.profilePicture
+                ? PUBLIC_FOLDER + user.profilePicture
+                : PUBLIC_FOLDER + "/person/noAvatar.png"
+            }
             alt=""
             className="shareProfileImg"
           />
