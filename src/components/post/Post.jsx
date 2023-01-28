@@ -2,6 +2,7 @@ import { MoreVert } from "@mui/icons-material";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { Users } from "../../dummyData";
+import { format } from "timeago.js";
 import "./Post.css";
 
 export default function Post({ post }) {
@@ -14,7 +15,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await axios.get(`users/${post.userId}`);
+      const response = await axios.get(`/users/${post.userId}`);
       setUser(response.data);
       console.log(response.data);
     };
@@ -40,7 +41,7 @@ export default function Post({ post }) {
                 className="postProfileImg"
               />
               <span className="postUsername">{user.username}</span>
-              <span className="postDate">{post.date}</span>
+              <span className="postDate">{format(post.createdAt)}</span>
             </div>
             <div className="postTopRight">
               <MoreVert />
