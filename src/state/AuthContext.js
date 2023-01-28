@@ -2,7 +2,18 @@ import { Children, createContext, useReducer } from "react";
 import { AuthReducer } from "./AuthReducer";
 // 最初のユーザー状態を定義する
 const initialState = {
-  user: null,
+  // user: null,
+  user: {
+    _id: "63ccee17d01482a298ba9ce7",
+    username: "shincode",
+    email: "shincode@gmail.com",
+    password: "aaaaaa",
+    profilePicture: "",
+    coverPicture: "",
+    followers: [],
+    followings: [],
+    isAdmin: false,
+  },
   isFetching: false,
   error: false,
 };
